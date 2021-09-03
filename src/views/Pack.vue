@@ -62,10 +62,19 @@ export default {
     }
 
     watch(currentCards, () => {
+      // getting common cards
       const commons = getRandomCards(5, currentCards.value.get('Common'));
       console.log('commons', commons);
       cards.value = cards.value.concat(commons);
-      // add uncommons
+      // getting uncommons
+      const uncommons = getRandomCards(1, currentCards.value.get('Uncommon'));
+      console.log('uncommons', uncommons);
+      cards.value = cards.value.concat(uncommons);
+
+      // get rare card
+      const rares = getRandomCards(1, currentCards.value.get('Rare'));
+      console.log('rares', rares);
+      cards.value = cards.value.concat(rares);
       // add reverse holos
       // add rare
     });
